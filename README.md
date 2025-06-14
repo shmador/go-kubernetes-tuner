@@ -38,7 +38,7 @@ This project implements a full GitOps flow where CPU usage metrics from Promethe
 Use the existing `Application` manifest in the repo to deploy the chart from `charts/nginx`.
 
 ```bash
-kubectl apply -f argocd-nginx-app.yaml
+kubectl apply -f argo-app.yaml
 ```
 
 ### 2. Run the Go Tuner
@@ -74,7 +74,7 @@ go run tuner/main.go
 │       └── values.yaml
 ├── tuner
 │   └── main.go
-├── argocd-nginx-app.yaml
+├── argo-app.yaml
 └── README.md
 ```
 
