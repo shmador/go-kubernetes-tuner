@@ -15,7 +15,7 @@ import (
 const (
 	prometheusURL = "http://localhost:9090"
 	query 	      = "avg(rate(container_cpu_usage_seconds_total%5B1m%5D))%20by%20(pod)"
-	threshold     = 0.00003
+	threshold     = 0.75
 	repoPath      = "charts/nginx"
 	valuesFile    = "values.yaml"
 	targetPod     = "nginx-auto-tuned" // substring match
