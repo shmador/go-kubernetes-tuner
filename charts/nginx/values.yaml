@@ -33,7 +33,7 @@ readinessProbe:
     httpGet:
         path: /
         port: http
-replicaCount: 10
+replicaCount: 2
 resources: {}
 securityContext: {}
 service:
