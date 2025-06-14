@@ -1,4 +1,4 @@
-# ArgoCD Auto-Tuner for NGINX Based on CPU Usage
+# ArgoCD Auto-Tuner based on CPU Usage
 
 This project implements a full GitOps flow where CPU usage metrics from Prometheus trigger a dynamic change to an NGINX Helm release. When CPU exceeds a threshold, a Go-based tuner edits `values.yaml`, commits the change, and Argo CD syncs it automatically.
 
@@ -33,7 +33,7 @@ This project implements a full GitOps flow where CPU usage metrics from Promethe
 
 ## Usage
 
-### 1. Deploy NGINX via Argo CD
+### 1. Deploy NGINX (or any pod) via Argo CD
 
 Use the existing `Application` manifest in the repo to deploy the chart from `charts/nginx`.
 
@@ -48,10 +48,10 @@ Edit `tuner/main.go` if needed:
 ```go
 const (
     prometheusURL = "http://localhost:9090"
-    query         = "avg(rate(container_cpu_usage_seconds_total[1m])) by (pod)"
     threshold     = 0.75
-    repoPath      = "../charts/nginx"
+    repoPath      = "charts/nginx"
     valuesFile    = "values.yaml"
+    targetPod     = "nginx-auto-tuned"
 )
 ```
 
